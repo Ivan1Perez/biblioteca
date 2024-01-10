@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Libro;
 use App\Models\Autor;
+use Illuminate\Http\Request;
 
-class LibroController extends Controller
+class AutorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class LibroController extends Controller
      */
     public function index()
     {
-        $libros = Libro::with('autor')->get();
-        return view('libros.index', compact('libros'));
+        //
     }
 
     /**
@@ -26,8 +24,7 @@ class LibroController extends Controller
      */
     public function create()
     {
-        $autores = Autor::get();
-        return view('libros.create', compact('autores'));
+        //
     }
 
     /**
@@ -38,45 +35,39 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        $libro = new Libro();
-        $libro->titulo = $request->get('titulo');
-        $libro->editorial = $request->get('editorial');
-        $libro->precio = $request->get('precio');
-        $libro->autor()->associate(Autor::findOrFail($request->get('autor')));
-        $libro->save();
-        return redirect()->route('libros.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Autor  $autor
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Autor $autor)
     {
-        return "Mostramos ficha del libro $id";
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Autor  $autor
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Autor $autor)
     {
-        return "Formulario de edición de libros";
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Autor  $autor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Autor $autor)
     {
         //
     }
@@ -84,10 +75,10 @@ class LibroController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Autor  $autor
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Autor $autor)
     {
         //
     }

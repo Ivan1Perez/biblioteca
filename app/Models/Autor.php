@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Libro extends Model
+class Autor extends Model
 {
     use HasFactory;
-    public function autor() {
-        return $this->belongsTo(Autor::class);
+    protected $table = 'autores';
+
+    public function libros() {
+        return $this->hasMany(Libro::class);
     }
 }
