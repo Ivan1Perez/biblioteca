@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LibroPost;
 use Illuminate\Http\Request;
 use App\Models\Libro;
 use App\Models\Autor;
@@ -36,7 +37,7 @@ class LibroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LibroPost $request)
     {
         $libro = new Libro();
         $libro->titulo = $request->get('titulo');
